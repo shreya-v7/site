@@ -1,0 +1,6 @@
+.firebaserc
+firebase.json
+.firebase/
+.github/
+404.html
+firebase-debug.log

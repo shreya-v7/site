@@ -1,0 +1,245 @@
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+body {
+  font-family: "Open Sans", sans-serif;
+  background-color: #040404;
+  color: #fff;
+  position: relative;
+  background: transparent;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  background: #040404 url("../img/bg2.png") top right no-repeat;
+  background-size: cover;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  z-index: -1;
+}
+
+@media (min-width: 1024px) {
+  body::before {
+    background-attachment: fixed;
+  }
+}
+
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  background-size: cover;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mangekyou {
+  background: black;
+  width: 8em;
+  height: 8em;
+  position: absolute;
+  z-index: 9999;
+  left: 45%;
+  top: 40%;
+  transform: translate(-40%, -45%);
+  border: 5px #000 solid;
+  animation: spin 5s ease-in-out;
+}
+
+.mangekyou .point {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 5.6em;
+  width: 5.6em;
+  background: #e41414;
+   animation: shine 5s ease-in-out;
+}
+
+.mangekyou .point:nth-child(1) {
+  border-radius: 0% 100% 0% 100% / 0% 100% 0% 100%;
+  transform: translate(-50%, -50%) rotate(-15deg);
+}
+
+.mangekyou .point:nth-child(2) {
+  border-radius: 100% 0% 100% 0% / 100% 0% 100% 0%;
+   transform: translate(-50%, -50%) rotate(15deg);
+}
+
+.mangekyou .point:nth-child(3) {
+  border-radius: 100% 0% 100% 0% / 100% 0% 100% 0%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+border: 3px #000 solid;
+}
+
+.mangekyou .point:nth-child(3)::before,
+.mangekyou .point:nth-child(3)::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: inherit;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+}
+
+.mangekyou .point:nth-child(3)::before {
+  transform: translate(-50%, -50%) rotate(-60deg);
+}
+
+.mangekyou .point:nth-child(3)::after {
+  transform: translate(-50%, -50%) rotate(60deg);
+}
+
+.mangekyou,
+.tomoe,
+.circle,
+.inner-ring {
+  border-radius: 50%;
+}
+
+.tomoe,
+.circle {
+  position: absolute;
+  width: 1em;
+  height: 1em;
+  background: #000;
+  z-index: 2;
+}
+
+.mangekyou .circle {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1.5em;
+  height: 1.5em;
+  box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.6);
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+ 
+  100% {
+    transform: rotate(720deg);
+  }
+}
+
+@keyframes shine {
+  0% {
+    background: #e41414;
+    opacity: 0;
+  }
+  50% {
+    background: #f03a3a;
+    box-shadow: 0 0 4px 4px #f03a3a;
+  }
+  100% {
+    box-shadow: none;
+    background: #e41414;
+    opacity: 1;
+  }
+}
+
+
+
+a {
+  color: #18d26e;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #35e888;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Raleway", sans-serif;
+}
+
+
+/*--------------------------------------------------------------
+# Sections General
+--------------------------------------------------------------*/
+section {
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  top: 140px;
+  bottom: 100%;
+  opacity: 0;
+  transition: ease-in-out 0.4s;
+  z-index: 2;
+}
+
+section.section-show {
+  top: 100px;
+  bottom: auto;
+  opacity: 1;
+  padding-bottom: 45px;
+}
+
+section .container {
+  background: rgba(0, 0, 0, 0.9);
+  padding: 30px;
+}
+
+@media (max-width: 768px) {
+  section {
+    top: 120px;
+  }
+
+  section.section-show {
+    top: 80px;
+  }
+}
+
+.section-title h2 {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 0;
+  line-height: 1px;
+  margin: 0 0 20px 0;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #aaaaaa;
+  font-family: "Poppins", sans-serif;
+}
+
+.section-title h2::after {
+  content: "";
+  width: 120px;
+  height: 1px;
+  display: inline-block;
+  background: #4ceb95;
+  margin: 4px 10px;
+}
+
+.section-title p {
+  margin: 0;
+  margin: -15px 0 15px 0;
+  font-size: 36px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+}
+
+
